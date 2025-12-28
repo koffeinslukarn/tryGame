@@ -1,5 +1,7 @@
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include "world.h"
 
 int main()
 {
@@ -18,11 +20,23 @@ int main()
 
     glfwMakeContextCurrent(window);
 
-    while (!glfwWindowShouldClose(window))
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cerr << "Failed to initialize GLAD\n";
+        return -1;
+    }
+
+    World world;
+
+    bool gameRunning = true; // gö inte denna till const
+
+    while (gameRunning && !glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT);
-        glfwSwapBuffers(window);
         glfwPollEvents();
+        world.update(0.016f); // upddatera endligt standardvärde
+        world.draw();
+        glfwSwapBuffers(window);
     }
 
     glfwTerminate();

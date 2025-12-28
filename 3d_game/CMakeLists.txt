@@ -5,11 +5,17 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(GLFW_DIR "C:/Users/david/Documents/libs/glfw")
 
-add_executable(3d_game main.cpp)
+add_executable(3d_game main.cpp
+        world.cpp
+        world.h
+        import/glad/src/glad.c
+)
+
 
 
 target_include_directories(3d_game PRIVATE
         "${GLFW_DIR}/include"
+        "${CMAKE_SOURCE_DIR}/import/glad/include"
 )
 
 target_link_directories(3d_game PRIVATE
