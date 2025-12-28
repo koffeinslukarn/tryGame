@@ -5,19 +5,21 @@
 #ifndef INC_3D_GAME_WORLD_H
 #define INC_3D_GAME_WORLD_H
 
+#include <glad/glad.h>
+
 
 class World {
     public:
         World();
         ~World() = default;
         void update(float deltaTime);
-        void draw();
+        void draw() const;
 
 
     private:
-    int x = 0;
-    int y = 0;
-    int z = 0;
+    GLuint m_vao = 0;
+    GLuint m_vbo = 0;
+    GLuint m_program = 0;
 
 
 };
