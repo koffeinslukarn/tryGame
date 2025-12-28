@@ -8,18 +8,23 @@
 #include <glad/glad.h>
 
 
+
+
 class World {
     public:
         World();
-        ~World() = default;
+        ~World();
         void update(float deltaTime);
+
         void draw() const;
 
 
     private:
+    // GPU resourses
     GLuint m_vao = 0;
     GLuint m_vbo = 0;
     GLuint m_program = 0;
+
 
 
 };
