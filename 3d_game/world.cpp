@@ -12,6 +12,6 @@ void World::update(float deltaTime) {
     //uppdatera händelser
 }
 
-void World::draw() {
+void World::draw() const{
     //rita om
 }
